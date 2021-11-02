@@ -10,9 +10,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Pokedex",
-      home: Inicio(),
-    );
+        title: "Pokedex",
+        home: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/background/Principal.png'),
+                  fit: BoxFit.fitHeight)),
+          child: Inicio(),
+        ));
   }
 }
 
@@ -26,19 +31,35 @@ class Inicio extends StatefulWidget {
 class _InicioState extends State<Inicio> {
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
-      //appBar: AppBar(),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min, //Centrado del boton
-          children: <Widget>[
-            const SizedBox(height: 100), //altura del boton
-            ElevatedButton(style: style,onPressed: () {}, child: const Text("EMPEZAR"))
-          ],
-        ),
-      ), 
-    );
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            Stack(children: <Widget>[
+              Text(
+                "POKEDEX",
+                style: TextStyle(
+                    //borde del texto
+                    fontSize: 40,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 6
+                      ..color = Colors.red[700]!),
+              ),
+              Text(
+                  //texto solido como relleno
+                  "POKEDEX",
+                  style: TextStyle(fontSize: 40, color: Colors.grey[400]))
+            ]),
+            Container(
+              margin: const EdgeInsets.only(bottom: 150.0),
+              child: IconButton(
+                icon: Image.asset('assets/ui/Pokebola.png'),
+                iconSize: 60,
+                onPressed: () {},
+              ),
+            ),
+          ]),
+        ));
   }
 }
