@@ -36,7 +36,9 @@ class _InicioState extends State<Inicio> {
         body: Center(
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             Stack(children: <Widget>[
-              Text(
+              Container(
+                  margin: const EdgeInsets.only(bottom: 100.0),
+                  child: Text(
                 "POKEDEX",
                 style: TextStyle(
                     //borde del texto
@@ -45,21 +47,24 @@ class _InicioState extends State<Inicio> {
                       ..style = PaintingStyle.stroke
                       ..strokeWidth = 6
                       ..color = Colors.red[700]!),
-              ),
-              Text(
-                  //texto solido como relleno
-                  "POKEDEX",
-                  style: TextStyle(fontSize: 40, color: Colors.grey[400]))
+              )),
+              Container(
+                  margin: const EdgeInsets.only(bottom: 100.0),
+                  child: Text(
+                      //texto solido como relleno
+                      "POKEDEX",
+                      style: TextStyle(fontSize: 40, color: Colors.grey[400])))
             ]),
             Container(
-              margin: const EdgeInsets.only(bottom: 150.0),
+              margin: const EdgeInsets.only(bottom: 170.0),
               child: IconButton(
                 icon: Image.asset('assets/ui/Pokebola.png'),
-                iconSize: 60,
+                iconSize: 70,
                 onPressed: () {},
               ),
             ),
           ]),
-        ));
+        )
+    );
   }
 }
