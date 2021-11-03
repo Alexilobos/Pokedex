@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex_tercer_parcial/principal.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: "Pokedex",
         home: Container(
-          decoration: BoxDecoration(
+          decoration: BoxDecoration(                                              //fondo de presentacion principal
               image: DecorationImage(
                   image: AssetImage('assets/background/Principal.png'),
                   fit: BoxFit.fitHeight)),
@@ -35,7 +36,7 @@ class _InicioState extends State<Inicio> {
         backgroundColor: Colors.transparent,
         body: Center(
           child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Stack(children: <Widget>[
+            Stack(children: <Widget>[                                                 //estilo de letra o titulo principal
               Container(
                   margin: const EdgeInsets.only(bottom: 100.0),
                   child: Text(
@@ -57,10 +58,14 @@ class _InicioState extends State<Inicio> {
             ]),
             Container(
               margin: const EdgeInsets.only(bottom: 170.0),
-              child: IconButton(
-                icon: Image.asset('assets/ui/Pokebola.png'),
-                iconSize: 70,
-                onPressed: () {},
+              child: IconButton(                                                     //boton pokebola de acceso principal
+                icon: Image.asset('assets/ui/MasterBall.png',height: 100,width: 100),
+                iconSize: 90,
+                onPressed: () {
+                  Navigator.push(
+                    context,MaterialPageRoute(builder: (context) => Principalmenu())
+                  );
+                },
               ),
             ),
           ]),
