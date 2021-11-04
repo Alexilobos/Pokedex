@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
         home: Container(
           decoration: BoxDecoration(                                              //fondo de presentacion principal
               image: DecorationImage(
-                  image: AssetImage('assets/background/Principal.png'),
-                  fit: BoxFit.fitHeight)),
+                image: AssetImage('assets/background/Principal.png'),
+                fit: BoxFit.fitHeight
+              )
+          ),
           child: Inicio(),
         ));
   }
@@ -59,6 +61,7 @@ class _InicioState extends State<Inicio> {
             Container(
               margin: const EdgeInsets.only(bottom: 170.0),
               child: IconButton(                                                     //boton pokebola de acceso principal
+                splashColor: Colors.red[200],                                                  
                 icon: Image.asset('assets/ui/MasterBall.png',height: 100,width: 100),
                 iconSize: 90,
                 onPressed: () {
