@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_tercer_parcial/principal.dart';
+import 'package:pokedex_tercer_parcial/principalprueba2.dart';
+//import 'package:pokedex_tercer_parcial/principal.dart';
+//import 'package:pokedex_tercer_parcial/principalprueba.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +22,8 @@ class MyApp extends StatelessWidget {
               )
           ),
           child: Inicio(),
-        ));
+        )
+    );
   }
 }
 
@@ -66,7 +69,7 @@ class _InicioState extends State<Inicio> {
                 iconSize: 90,
                 onPressed: () {
                   Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => Principalmenu())
+                    context,MaterialPageRoute(builder: (context) => Principalmenuprueba2())
                   );
                 },
               ),

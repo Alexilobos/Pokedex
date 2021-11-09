@@ -83,9 +83,7 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DefaultTabController(
-        length: 2,
-        child: NestedScrollView(
+      body: NestedScrollView(
           headerSliverBuilder:
           (BuildContext context, bool innerBoxIsScrolled) {
             return [
@@ -132,7 +130,7 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                           color: Colors.blue[index * 100],
                           child: new Container(
                             width: 150.0,
-                            height: 150.0,
+                            height: 120.0,
                             child: new Text("$index"),
                           ),
                         );
@@ -140,12 +138,92 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                     ),
                   ),
                 ),
+
+                new Container(
+                  height: 110.0,
+                  child: Center(
+                    child: new ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: new List.generate(
+                        4, (int index) {
+                          return new Card(
+                            color: Colors.red[index * 100],
+                            child: new Container(
+                              width: 82.0,
+                              height: 90.0,
+                              child: new Text("$index"),
+                            ),
+                          );
+                        }
+                      ),
+                    ),
+                  )
+                ),
+                new Container(
+                  height: 110.0,
+                  child: Center(
+                    child: new ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: new List.generate(
+                        4, (int index) {
+                          return new Card(
+                            color: Colors.yellow[index * 100],
+                            child: new Container(
+                              width: 82.0,
+                              height: 90.0,
+                              child: new Text("$index"),
+                            ),
+                          );
+                        }
+                      ),
+                    ),
+                  )
+                ),
+                new Container(
+                  height: 110.0,
+                  child: Center(
+                    child: new ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: new List.generate(
+                        4, (int index) {
+                          return new Card(
+                            color: Colors.yellow[index * 100],
+                            child: new Container(
+                              width: 82.0,
+                              height: 90.0,
+                              child: new Text("$index"),
+                            ),
+                          );
+                        }
+                      ),
+                    ),
+                  )
+                ),
+                new Container(
+                  height: 110.0,
+                  child: Center(
+                    child: new ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: new List.generate(
+                        3, (int index) {
+                          return new Card(
+                            color: Colors.purple[index * 100],
+                            child: new Container(
+                              margin: const EdgeInsets.only(left: 12),
+                              width: 98.0,
+                              height: 90.0,
+                              child: new Text("$index"),
+                            ),
+                          );
+                        }
+                      ),
+                    ),
+                  )
+                ),
               ]
             ),
           )
-        )
       )
     );
   }
 }
-
