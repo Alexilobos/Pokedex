@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:pokedex_tercer_parcial/cartas.dart';
-//import 'package:pokedex_tercer_parcial/cartas.dart';
-import 'package:pokedex_tercer_parcial/models/ApiService.dart';
+import 'package:pokedex_tercer_parcial/models/ApiServicePokemon.dart';
 import 'package:pokedex_tercer_parcial/models/pokemon.dart';
+import 'package:pokedex_tercer_parcial/utils/utils.dart';
 
 class AllPokemon extends StatefulWidget {
   AllPokemon({Key? key}) : super(key: key);
@@ -40,38 +40,7 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
     super.initState();
     futurepokemons = service.getData();
   }
-  Color getBackgroundColor(String type1){
-    Map<String, Color> colors = {
-      'grass': Colors.green[300]!,
-      'fire': Colors.red[300]!,
-      'water': Colors.lightBlueAccent[200]!,
-      'bug': Colors.lightGreen[300]!,
-      'normal': Colors.grey[400]!,
-      'poison': Colors.purple[300]!,
-      'electric': Colors.yellow[300]!,
-      'ground': Colors.amber[200]!,
-      'fairy': Colors.pink[200]!,
-      'fighting': Colors.blueGrey,
-      'psychic': Colors.pinkAccent,
-      'rock': Colors.brown[300]!,
-      'ghost': Colors.indigo[300]!,
-      'ice': Colors.lightBlueAccent[100]!,
-      'dragon': Colors.deepPurple[200]!,
-      'dark': Colors.brown,
-      'steel': Colors.blueGrey[200]!,
-      'flyin': Colors.lightBlue[300]!,
-    };
-    return colors[type1.toLowerCase()]!;
-  }
 
-  String getImageUrl(int id){
-    String strid = id.toString(); 
-    String newstrid = "";
-    for (var i = strid.length; i < 4; i++) {
-      newstrid = strid.padLeft(i,"0");
-    }
-    return newstrid;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,18 +54,33 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
           ),
         ),
         centerTitle: true,
-        title: Text(
-          "POKÉDEX",
+        title: Container(
+          width: double.infinity,
+          height: 40,
+          decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(5)
+          ),
+          child: Center(
+            child: TextFormField(
+              cursorColor: Colors.black,
+              //keyboardType: inputType,
+              autocorrect: true,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search),
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.clear),
+                  onPressed: () {},
+                ),
+                hintText: 'Search Pokemon...',
+                border: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                errorBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+              ),
+            ),
+          ),
         ),
-        actions: <Widget>[
-          IconButton(
-            padding: const EdgeInsets.only(right: 20.0),
-            icon: Icon(Icons.search),
-            onPressed: () {
-              print("hola buscador");
-            },
-          )
-        ],
       ),
       body: Container(
         child: FutureBuilder<List<Pokemon>>(
@@ -116,8 +100,8 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
                   return CardWidget(
                     maintext: pokemon.nombre,
                     textcolor: Colors.black,
-                    backgroungcolor: getBackgroundColor(pokemon.type1),
-                    imagenpresentacion: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + getImageUrl(pokemon.id) + ".png",
+                    backgroungcolor: UtilsColors.getBackgroundColor(pokemon.type1),
+                    imagenpresentacion: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + Utils.getFilledString(pokemon.id) + ".png",
                   );
                 },
               );

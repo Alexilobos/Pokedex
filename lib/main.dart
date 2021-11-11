@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_tercer_parcial/principalprueba2.dart';
-//import 'package:pokedex_tercer_parcial/principal.dart';
-//import 'package:pokedex_tercer_parcial/principalprueba.dart';
+
+//import 'login.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,7 +40,8 @@ class _InicioState extends State<Inicio> {
     return Scaffold(
         backgroundColor: Colors.transparent,
         body: Center(
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
+          child: Column(
+            mainAxisSize: MainAxisSize.min, children: [
             Stack(children: <Widget>[                                                 //estilo de letra o titulo principal
               Container(
                   margin: const EdgeInsets.only(bottom: 100.0),
@@ -69,7 +70,7 @@ class _InicioState extends State<Inicio> {
                 iconSize: 90,
                 onPressed: () {
                   Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => Principalmenuprueba2())
+                    context,MaterialPageRoute(builder: (context) => Principalmenuprueba2()/*LoginHome()*/)
                   );
                 },
               ),

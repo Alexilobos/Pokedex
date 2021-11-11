@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:pokedex_tercer_parcial/detailpokemon.dart';
+
+import 'detailprueba.dart';
 
 
 class CardWidget extends StatefulWidget {
@@ -24,19 +27,22 @@ class _CardWidgetState extends State<CardWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('holaa');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PokeDetail()),       
+        );
       },
       child: Container(
         width: 135.0,
         height: 110.0,
-        margin: EdgeInsets.only(right: 5.0),
+        margin: EdgeInsets.only(left: 5.0,right: 5.0),
         child: Stack(
           children: [
             Align(
               alignment: Alignment.center,
                 child: Container(
-                  width: 130.0,
-                  height: 150.0,
+                  width: 150.0,
+                  height: 160.0,
                   decoration: BoxDecoration(
                     color: widget.backgroungcolor,
                     shape: BoxShape.rectangle,
@@ -45,11 +51,12 @@ class _CardWidgetState extends State<CardWidget> {
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 10.0,bottom: 10.0),
+                      padding: EdgeInsets.only(left: 5.0,bottom: 35.0),
                       child: Text(
                         widget.maintext,
                         style: TextStyle(
-                          fontSize: 15.0,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
                           fontFamily: 'Montserrat',
                           color: widget.textcolor,
                         ),
@@ -59,8 +66,7 @@ class _CardWidgetState extends State<CardWidget> {
                 )
             ),
             Align(
-              
-              alignment: Alignment.topCenter,
+              alignment: Alignment(0.10 , -0.50),
               child: Image.network(widget.imagenpresentacion,width: 80,),
             ),
           ],

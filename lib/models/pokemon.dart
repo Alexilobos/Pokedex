@@ -15,7 +15,7 @@ class Pokemon {
   bool legendario = false;
 
   Pokemon(
-      {this.id = -1,
+    {this.id = -1,
       this.nombre = "",
       this.type1 = "",
       this.type2 = "",

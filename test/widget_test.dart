@@ -12,11 +12,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 String getImageUrl(int id){
   String strid = id.toString(); 
-  String newstrid = "";
-  for (var i = strid.length; i < 4; i++) {
-    newstrid = strid.padLeft(i,"0");
-  }
-  return newstrid;
+  return new List.filled(3 - strid.length, '0').join('') + strid;
 }
 
 
