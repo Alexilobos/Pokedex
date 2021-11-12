@@ -1,23 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_tercer_parcial/models/pokemon.dart';
 //import 'package:pokedex_tercer_parcial/detailpokemon.dart';
 
 import 'detailprueba.dart';
+import 'utils/utils.dart';
 
 
 class CardWidget extends StatefulWidget {
   CardWidget({
     Key? key,
-    this.maintext = "",
-    this.textcolor = Colors.black,
-    this.backgroungcolor = Colors.white,
-    this.imagenpresentacion = '',
-    }) : super(key: key);
+    required this.pokemon
+  }) : super(key: key);
 
-    final Color textcolor;  //color de texto
-    final String imagenpresentacion;  //imagen de pokemon
-    final String maintext;  //nombre del pokemon
-    final Color backgroungcolor;  //color de fondo
+    final Pokemon pokemon;  //color de texto
   @override
   _CardWidgetState createState() => _CardWidgetState();
 }
@@ -29,7 +25,7 @@ class _CardWidgetState extends State<CardWidget> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PokeDetail()),       
+          MaterialPageRoute(builder: (context) => PokeDetail(pokemon: widget.pokemon)),       
         );
       },
       child: Container(
@@ -44,7 +40,7 @@ class _CardWidgetState extends State<CardWidget> {
                   width: 150.0,
                   height: 160.0,
                   decoration: BoxDecoration(
-                    color: widget.backgroungcolor,
+                    color: UtilsColors.getBackgroundColor(widget.pokemon.type1),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   ),
@@ -53,12 +49,12 @@ class _CardWidgetState extends State<CardWidget> {
                     child: Padding(
                       padding: EdgeInsets.only(left: 5.0,bottom: 35.0),
                       child: Text(
-                        widget.maintext,
+                        widget.pokemon.nombre,
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Montserrat',
-                          color: widget.textcolor,
+                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -67,7 +63,10 @@ class _CardWidgetState extends State<CardWidget> {
             ),
             Align(
               alignment: Alignment(0.10 , -0.50),
-              child: Image.network(widget.imagenpresentacion,width: 80,),
+              child: Image.network(
+                "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + Utils.getFilledString(widget.pokemon.id) + ".png",
+                width: 80,
+              ),
             ),
           ],
         )

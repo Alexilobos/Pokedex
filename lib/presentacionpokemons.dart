@@ -5,7 +5,6 @@ import 'package:pokedex_tercer_parcial/cartas.dart';
 import 'package:pokedex_tercer_parcial/models/ApiServicePokemon.dart';
 import 'package:pokedex_tercer_parcial/models/pokemon.dart';
 import 'package:pokedex_tercer_parcial/principalprueba2.dart';
-import 'package:pokedex_tercer_parcial/utils/utils.dart';
 
 class AllPokemon extends StatefulWidget {
   AllPokemon({Key? key}) : super(key: key);
@@ -66,33 +65,6 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
           ),
         ],
         centerTitle: true,
-        /*title: Container(
-          width: double.infinity,
-          height: 40,
-          decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(5)
-          ),
-          child: Center(
-            child: TextFormField(
-              cursorColor: Colors.black,
-              //keyboardType: inputType,
-              autocorrect: true,
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                suffixIcon: IconButton(
-                  icon: Icon(Icons.clear),
-                  onPressed: () {},
-                ),
-                hintText: 'Search Pokemon...',
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                errorBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-              ),
-            ),
-          ),
-        ),*/
       ),
       body: Container(
         child: FutureBuilder<List<Pokemon>>(
@@ -110,10 +82,7 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
                 itemBuilder: (context, index) {
                   Pokemon pokemon = snapshot.data[index];
                   return CardWidget(
-                    maintext: pokemon.nombre,
-                    textcolor: Colors.black,
-                    backgroungcolor: UtilsColors.getBackgroundColor(pokemon.type1),
-                    imagenpresentacion: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/" + Utils.getFilledString(pokemon.id) + ".png",
+                    pokemon: pokemon
                   );
                 },
               );
