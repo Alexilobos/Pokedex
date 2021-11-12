@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_tercer_parcial/presentacionpokemons.dart';
-
-//import 'cartas.dart';
+import 'perfilUsers.dart';
 
 class Principalmenuprueba2 extends StatefulWidget {
   Principalmenuprueba2({Key? key}) : super(key: key);
@@ -49,7 +48,7 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
               ),
             ),
             Container(                                   //numero de id
-              child: Center(child: Text('24457id'),)
+              child: Center(child: Text('7819 #'),)
             ),
             PopupMenuButton(                                    //icono y boton de usuario
               color: Colors.purple[50],
@@ -59,12 +58,14 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                   child: Container(
                     child:
                     TextButton(
-                      child: Text("Primercosa"),
-                      onPressed: () {},
+                      child: Text("Perfil"),
+                      onPressed: () => Navigator.push(
+                        context,MaterialPageRoute(builder: (context){return PerfilUsers();})
+                      ),
                     )
                   )
                 ),
-                PopupMenuItem(
+               /*PopupMenuItem(
                   child: Container(
                     child:
                     TextButton(
@@ -72,12 +73,12 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                       onPressed: () {},
                     )
                   )
-                ),
+                ),*/
                 PopupMenuItem(
                   child: Container(
                     child:
                     TextButton(
-                      child: Text("Tercercosa"),
+                      child: Text("Creditos"),
                       onPressed: () {},
                     )
                   )
@@ -87,59 +88,36 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
           ],
         ),
         backgroundColor: Colors.white,
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.all(20), 
-                child: OutlinedButton(
-                  child: Text("Pokemones"),
-                  style: OutlinedButton.styleFrom(
-                    fixedSize: Size(200,80),
-                    primary: Colors.white,
-                    backgroundColor: Colors.yellow[300],
-                    elevation: 5,
-                    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,MaterialPageRoute(builder: (context) => AllPokemon())
-                    );
-                  },
-                ),
-              ),
-                            Container(
-                margin: EdgeInsets.all(20), 
-                child: OutlinedButton(
-                  child: Text("Favorite"),
-                  style: OutlinedButton.styleFrom(
-                    fixedSize: Size(200,80),
-                    primary: Colors.white,
-                    backgroundColor: Colors.purple[300],
-                    elevation: 5,
-                    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
-                  ),
-                  onPressed: () {
-                    print("hola1");
-                  },
-                ),
-              )
-
-            ],
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/background/FondoNavegations.png"),
+              fit: BoxFit.cover,
+            ),
           ),
+          child:Center(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: 220), 
+                  child: OutlinedButton(
+                    child: Text("Pokemones"),
+                    style: OutlinedButton.styleFrom(
+                      fixedSize: Size(200,80),
+                      primary: Colors.white,
+                      backgroundColor: Colors.red[400],
+                      elevation: 5,
+                      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                    ),
+                    onPressed: () => Navigator.push(
+                        context,MaterialPageRoute(builder: (context){return AllPokemon();})
+                      ),
+                  ),
+                ),
+              ],
+            ),
+          )
         )
     );
   }
 }
-
-
-
-
-
-//barra de busqueda
-  /*flexibleSpace: FlexibleSpaceBar(
-      centerTitle: true,
-      background: Image.network(
-        'assets/background/PrincipalNavegation.png',fit: BoxFit.cover,
-      ),
-    ),*/

@@ -1,17 +1,15 @@
 
 import 'package:flutter/material.dart';
-import 'package:pokedex_tercer_parcial/models/pokemon.dart';
-//import 'package:pokedex_tercer_parcial/utils/utils.dart';
 
-class PokeDetail extends StatelessWidget {
-  final Pokemon? pokemon;
+class PerfilUsers extends StatelessWidget {
+  //final Usuario usuario;
 
-  PokeDetail({this.pokemon});
+  //PokeDetail({this.pokemon});
 
   bodyWidget(BuildContext context) => Stack(
         children: <Widget>[
           Positioned(
-            height: MediaQuery.of(context).size.height / 1.5,
+            height: MediaQuery.of(context).size.height / 1.3,
             width: MediaQuery.of(context).size.width - 20,
             left: 10.0,
             top: MediaQuery.of(context).size.height * 0.1,
@@ -23,35 +21,35 @@ class PokeDetail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   SizedBox(
-                    height: 70.0,
+                    height: 165.0,
                   ),
-                  Text("Charizard",
+                  Text("Alexi Lobos",
                     /*pokemon!.nombre,*/
                     style:
                         TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "Stats",
+                    "Detalles",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   ListTile(
                     contentPadding: EdgeInsetsDirectional.only(start: 100.0),
                     leading: Icon(Icons.favorite,color: Colors.red,),
-                    title: Text("Hp:   78"),
+                    title: Text("Edad:  18"),
                   ),
                   ListTile(
-                    contentPadding: EdgeInsetsDirectional.only(start: 100.0),
+                    contentPadding: EdgeInsetsDirectional.only(start: 10.0),
                     leading: Icon(Icons.outbond,color: Colors.green,),
-                    title: Text("At:   84"),
+                    title: Text("Correo: loboalexis2001@gmail.com"),
                   ),
                   ListTile(
-                    contentPadding: EdgeInsetsDirectional.only(start: 100.0),
+                    contentPadding: EdgeInsetsDirectional.only(start: 40.0),
                     leading: Icon(Icons.shield,color: Colors.grey,),
-                    title: Text("Df:   78"),
+                    title: Text("Cumpleaño: 4 Septiembre"),
                   ),
 
                   Text(
-                    "Types",
+                    "Equipo",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Row(
@@ -59,16 +57,16 @@ class PokeDetail extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: FilterChip(
-                          backgroundColor: Colors.red[300],
-                          label: Text("Fire"/*pokemon!.type1*/),
+                          backgroundColor: Colors.blue[800],
+                          label: Text("Azul"/*pokemon!.type1*/),
                           selected: false,
                           onSelected: (bool value){},
                         ),
                       ),
                       Container(
                         child: FilterChip(
-                          backgroundColor: Colors.lightBlue[300],
-                          label: Text("Flying"/*pokemon!.type2*/),
+                          backgroundColor: Colors.red,
+                          label: Text("Rojo"/*pokemon!.type2*/),
                           selected: false,
                           onSelected: (bool value){},
                         ),
@@ -83,15 +81,18 @@ class PokeDetail extends StatelessWidget {
           Align(
             alignment: Alignment.topCenter,
             child: Hero(
-                tag: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/006" /*+ Utils.getFilledString(pokemon!.id)*/ + ".png",
+                tag: "assets/background/PerfilUserPerson.png",
                 child: Container(
-                  height: 200.0,
+                  height: 250.0,
                   width: 200.0,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover, 
-                        image: NetworkImage("https://assets.pokemon.com/assets/cms2/img/pokedex/detail/006" /*+ Utils.getFilledString(pokemon!.id) */+ ".png"))),
-                )),
+                        image: NetworkImage("assets/background/PerfilUserPerson.png")
+                      )
+                  ),
+                )
+            ),
           )
         ],
       );
@@ -99,16 +100,11 @@ class PokeDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
+      backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.cyan,
-        title: Text("Detail Pokemon",
-          style: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.bold
-          ),
-        ),
+        backgroundColor: Colors.lightBlueAccent,
+        title: Text("Detail Perfil"),
       ),
       body: bodyWidget(context),
     );

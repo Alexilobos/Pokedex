@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex_tercer_parcial/cartas.dart';
 import 'package:pokedex_tercer_parcial/models/ApiServicePokemon.dart';
 import 'package:pokedex_tercer_parcial/models/pokemon.dart';
+import 'package:pokedex_tercer_parcial/principalprueba2.dart';
 import 'package:pokedex_tercer_parcial/utils/utils.dart';
 
 class AllPokemon extends StatefulWidget {
@@ -46,15 +47,26 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[700],
-        leading: Container(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: ImageIcon(
-            AssetImage('assets/ui/Pokeballicon.png'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: ()=> Navigator.push(
+            context,MaterialPageRoute(builder: (context){return Principalmenuprueba2();})
           ),
         ),
+        backgroundColor: Colors.grey[700],
+        title: Text("Pokemons", 
+          style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+        ),
+        actions: <Widget>[ 
+          Container(
+            padding: const EdgeInsets.only(right: 30.0),
+            child: ImageIcon(
+              AssetImage('assets/ui/Pokeballicon.png'),
+            ),
+          ),
+        ],
         centerTitle: true,
-        title: Container(
+        /*title: Container(
           width: double.infinity,
           height: 40,
           decoration: BoxDecoration(
@@ -80,7 +92,7 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
               ),
             ),
           ),
-        ),
+        ),*/
       ),
       body: Container(
         child: FutureBuilder<List<Pokemon>>(
@@ -108,7 +120,7 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
             } else if(snapshot.hasError) {
               return Text("Error");
             }
-            return Text("Loading...");
+            return Center(child:  Text("Loading..."));
           },
         ),
       ),
