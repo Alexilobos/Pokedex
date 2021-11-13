@@ -82,8 +82,8 @@ class PerfilUsers extends StatelessWidget {
             child: Hero(
                 tag: "assets/background/PerfilUserPerson.png",
                 child: Container(
-                  height: 200.0,
-                  width: 150.0,
+                  height: 250.0,
+                  width: 200.0,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover, 
