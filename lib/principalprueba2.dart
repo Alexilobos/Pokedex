@@ -65,15 +65,6 @@ class _ElementoCuerpoState extends State<ElementoCuerpo> {
                     )
                   )
                 ),
-               /*PopupMenuItem(
-                  child: Container(
-                    child:
-                    TextButton(
-                      child: Text("Segundacosa"),
-                      onPressed: () {},
-                    )
-                  )
-                ),*/
                 PopupMenuItem(
                   child: Container(
                     child:
