@@ -1,5 +1,3 @@
-//import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:pokedex_tercer_parcial/cartas.dart';
 import 'package:pokedex_tercer_parcial/models/ApiServicePokemon.dart';
@@ -40,7 +38,6 @@ class _CuerpoPokemonesState extends State<CuerpoPokemones> {
     super.initState();
     futurepokemons = service.getData();
   }
-
 
   @override
   Widget build(BuildContext context) {

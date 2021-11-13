@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:pokedex_tercer_parcial/models/pokemon.dart';
 import 'package:pokedex_tercer_parcial/utils/utils.dart';
@@ -65,7 +64,7 @@ class PokeDetail extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     child: FilterChip(
-                      backgroundColor: Colors.red[300],
+                      backgroundColor: UtilsColors.getBackgroundColor(pokemon.type1),
                       label: Text(
                         pokemon.type1,
                         style: TextStyle(fontWeight: FontWeight.bold)
@@ -76,7 +75,7 @@ class PokeDetail extends StatelessWidget {
                   ),
                   Container(
                     child: FilterChip(
-                      backgroundColor: Colors.lightBlue[300],
+                      backgroundColor: Colors.amber,
                       label: Text(
                         pokemon.type2,
                         style: TextStyle(fontWeight: FontWeight.bold)
@@ -114,10 +113,10 @@ class PokeDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
+      backgroundColor: UtilsColors.getBackgroundColor(pokemon.type1),
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.cyan,
+        backgroundColor: UtilsColors.getBackgroundColor(pokemon.type1),
         title: Text("Detail Pokemon",
           style: TextStyle(
             fontSize: 15,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_tercer_parcial/principalprueba2.dart';
-
-//import 'login.dart';
+//import 'package:pokedex_tercer_parcial/principalprueba2.dart';
+import 'login.dart';
 
 void main() {
   runApp(MyApp());
@@ -70,7 +69,7 @@ class _InicioState extends State<Inicio> {
                 iconSize: 90,
                 onPressed: () {
                   Navigator.push(
-                    context,MaterialPageRoute(builder: (context) => Principalmenuprueba2()/*LoginHome()*/)
+                    context,MaterialPageRoute(builder: (context) => /*Principalmenuprueba2()*/LoginHome())
                   );
                 },
               ),

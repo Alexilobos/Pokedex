@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex_tercer_parcial/models/pokemon.dart';
-//import 'package:pokedex_tercer_parcial/detailpokemon.dart';
-
 import 'detailprueba.dart';
 import 'utils/utils.dart';
 
@@ -13,7 +11,7 @@ class CardWidget extends StatefulWidget {
     required this.pokemon
   }) : super(key: key);
 
-    final Pokemon pokemon;  //color de texto
+    final Pokemon pokemon;  
   @override
   _CardWidgetState createState() => _CardWidgetState();
 }

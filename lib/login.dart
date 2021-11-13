@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'principalprueba2.dart';
 import 'signUp.dart';
 
 class LoginHome extends StatefulWidget {
@@ -44,7 +44,11 @@ class _LoginHomeState extends State<LoginHome> {
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,MaterialPageRoute(builder: (context) => Principalmenuprueba2())
+          );
+        },
         child: Text("Acceder",
           textAlign: TextAlign.center,
           style: style.copyWith(

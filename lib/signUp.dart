@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 class SingUp extends StatefulWidget {
   SingUp({Key? key}) : super(key: key);
@@ -64,7 +65,11 @@ class _SingUpState extends State<SingUp> {
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,MaterialPageRoute(builder: (context) => LoginHome())
+          );
+        },
         child: Text("Registrar",
           textAlign: TextAlign.center,
           style: style.copyWith(
